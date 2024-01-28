@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Base URL for the GitHub repository
-BASE_URL="https://raw.githubusercontent.com/SaracenRhue/piLab/main/config/"
+BASE_URL="https://raw.githubusercontent.com/SaracenRhue/pilabui/main/config/"
 
 # List of files to download
 FILES=(
@@ -9,9 +9,7 @@ FILES=(
     "routed-ap.conf"
     "dnsmasq.conf"
     "hostapd.conf"
-    "pilab"
     "99-custom"
-    "smb.conf"
 )
 
 # Dependencies
@@ -43,10 +41,9 @@ sudo mv /etc/dnsmasq.conf /etc/dnsmasq.conf.old
 sudo mv dnsmasq.conf /etc/dnsmasq.conf
 sudo mkdir /etc/hostapd/
 sudo mv hostapd.conf /etc/hostapd/hostapd.conf
-sudo mv pilab /usr/local/bin/pilab
-sudo mv /etc/update-motd.d/99-custom
-sudo mv smb.conf /etc/samba/smb.conf
-sudo chmod +x /usr/local/bin/pilab
+sudo mv 99-custom /etc/update-motd.d/99-custom
+# sudo mv smb.conf /etc/samba/smb.conf
+# sudo chmod +x /usr/local/bin/pilab
 sudo chmod +x /etc/update-motd.d/99-custom
 
 # Docker
@@ -57,7 +54,7 @@ source ~/.bashrc
 
 # Permissions
 sudo usermod -aG docker $USER
-sudo smbpasswd -a $USER
+# sudo smbpasswd -a $USER
 
 # Services
 sudo systemctl enable hostapd
