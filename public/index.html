@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rust HTMX Server</title>
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+
+<body>
+    <h1>Hello from Rust server!</h1>
+    <div id='htmx-target'>
+        <button hx-get='/update' hx-target='#htmx-target'>Click me!</button>
+    </div>
+</body>
+
+</html>
