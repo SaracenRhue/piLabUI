@@ -18,10 +18,8 @@ def get_wifi_info():
     return data 
 
 def set_wifi_info(key, value):
-    with open(HOSTAPD_CONF, 'r') as f:
-        lines = f.readlines()
     with open(HOSTAPD_CONF, 'w') as f:
-        for line in lines:
+        for line in f:
             if line.startswith(key):
                 line = key + '=' + value + '\n'
             f.write(line)
@@ -37,10 +35,8 @@ def get_dhcpcd_info():
     return data
 
 def set_dhcpcd_info(key, value):
-    with open(DHCPD_CONF, 'r') as f:
-        lines = f.readlines()
     with open(DHCPD_CONF, 'w') as f:
-        for line in lines:
+        for line in f:
             if line.startswith(key):
                 line = key + '=' + value + '\n'
             f.write(line)
